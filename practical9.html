@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>Simple CSS3 Page</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+body{
+    font-family:Poppins;
+    margin:0;
+    background:#f2f2f2;}
+header{
+    background:#ff7e5f;
+    color:white;
+    text-align:center;
+    padding:20px;}
+nav{
+    display:flex;
+    justify-content:center;
+    background:black;}
+nav a{
+    color:white;
+    padding:10px;
+    text-decoration:none;}
+nav a:hover{
+    background:#555;}
+.container{
+    column-count:2;
+    padding:15px;}
+.card{
+    background:white;
+    padding:10px;
+    margin:10px;
+    text-align:center;}
+.card:hover{
+    transform:scale(1.05);}
+</style>
+</head>
+<body>
+<header>
+<h2>My Webpage</h2>
+<p>Using CSS3 features</p>
+</header>
+<nav>
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Contact</a>
+</nav>
+<div class="container">
+<div class="card">
+<i class="fas fa-code"></i>
+<h3>Web Dev</h3>
+<p>HTML CSS basics</p>
+</div>
+<div class="card">
+<i class="fas fa-paint-brush"></i>
+<h3>Design</h3>
+<p>Simple UI design</p>
+</div>
+</div>
+</body>
+</html>
