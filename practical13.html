@@ -1,0 +1,263 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practical 13 - Shopping Website</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #eaf4ff, #f5f9ff);
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            background-color: #0d6efd !important;
+        }
+        .hero {
+            background: linear-gradient(to right, #cfe7ff, #eaf4ff);
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+        }
+        .hero h1 {
+            color: #0a3d62;
+            font-weight: bold;
+        }
+        .hero p {
+            color: #3b5d7a;
+        }
+        .section-title {
+            color: #0d6efd;
+            font-weight: bold;
+        }
+        .product-card, .info-box, .form-box {
+            background: white;
+            border: none;
+            border-radius: 18px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            padding: 18px;
+            height: 100%;
+        }
+        .product-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 14px;
+        }
+        .btn-shop {
+            background-color: #0d6efd;
+            color: white;
+            border-radius: 20px;
+        }
+        .btn-shop:hover {
+            background-color: #0b5ed7;
+            color: white;
+        }
+        .form-control, .form-select {
+            border-radius: 10px;
+        }
+        .breadcrumb {
+            border-radius: 14px;
+        }
+        .footer {
+            background-color: #0a3d62;
+            color: white;
+            text-align: center;
+            padding: 18px;
+            margin-top: 30px;
+        }
+        .modal-content {
+            border-radius: 16px;
+        }
+        .badge-soft {
+            background-color: #dbeafe;
+            color: #0d6efd;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#">ShopZone 💙</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mynav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="#offers">Offers</a></li>
+                <li class="nav-item"><a class="nav-link" href="#order">Order</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<section class="hero">
+    <h1>Welcome to ShopZone 🛍️</h1>
+    <p>Simple shopping website made using Bootstrap for Practical 13</p>
+    <button class="btn btn-shop mt-2" data-bs-toggle="modal" data-bs-target="#offerModal">View Offer</button>
+</section>
+<div class="container mt-4">
+    <nav>
+        <ol class="breadcrumb bg-white p-3 shadow-sm">
+            <li class="breadcrumb-item"><a href="#" class="text-decoration-none">Home</a></li>
+            <li class="breadcrumb-item"><a href="#" class="text-decoration-none">Shopping</a></li>
+            <li class="breadcrumb-item active">ShopZone</li>
+        </ol>
+    </nav>
+</div>
+<section class="container py-3">
+    <div class="info-box">
+        <h4 class="section-title">Shop Categories 🔽</h4>
+        <p>Select a category from the dropdown menu.</p>
+        <div class="dropdown">
+            <button class="btn btn-shop dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                Choose Category
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Fashion</a></li>
+                <li><a class="dropdown-item" href="#">Electronics</a></li>
+                <li><a class="dropdown-item" href="#">Footwear</a></li>
+                <li><a class="dropdown-item" href="#">Accessories</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+<section class="container py-4" id="products">
+    <h2 class="text-center section-title mb-4">Featured Products ✨</h2>
+
+    <div class="row g-4">
+        <div class="col-sm-6 col-lg-4">
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff" alt="Shoes">
+                <h5 class="mt-3">Stylish Shoes</h5>
+                <p>Comfortable and trendy shoes for everyday use.</p>
+                <span class="badge-soft">₹1499</span><br><br>
+                <button class="btn btn-shop">Add to Cart</button>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30" alt="Watch">
+                <h5 class="mt-3">Smart Watch</h5>
+                <p>A smart and stylish watch with modern features.</p>
+                <span class="badge-soft">₹2499</span><br><br>
+                <button class="btn btn-shop">Buy Now</button>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f" alt="Bag">
+                <h5 class="mt-3">Casual Bag</h5>
+                <p>Simple and useful bag for college and daily travel.</p>
+                <span class="badge-soft">₹999</span><br><br>
+                <button class="btn btn-shop">View Item</button>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="container py-4" id="offers">
+    <h2 class="text-center section-title mb-4">Special Offers 🎁</h2>
+    <div class="row g-3 text-center">
+        <div class="col-6 col-md-3">
+            <div class="info-box">10% Off</div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="info-box">Free Delivery</div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="info-box">New Arrivals</div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="info-box">Best Prices</div>
+        </div>
+    </div>
+</section>
+<section class="container py-4" id="order">
+    <h2 class="text-center section-title mb-4">Order Form 📝</h2>
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="form-box">
+                <form>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Customer Name</label>
+                            <input type="text" class="form-control" placeholder="Enter your name">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" class="form-control" placeholder="Enter your email">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Select Product</label>
+                        <select class="form-select">
+                            <option selected>Choose product</option>
+                            <option>Stylish Shoes</option>
+                            <option>Smart Watch</option>
+                            <option>Casual Bag</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Address</label>
+                        <textarea class="form-control" rows="4" placeholder="Enter delivery address"></textarea>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" id="check1">
+                        <label class="form-check-label" for="check1">
+                            I confirm my order details are correct.
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-shop">Place Order</button>
+                    <button type="button" class="btn btn-outline-primary ms-2" data-bs-toggle="modal" data-bs-target="#cartModal">
+                        View Cart
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="modal fade" id="offerModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Today's Offer 💙</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                Welcome to ShopZone! Get special discounts on selected products.  
+                Shopping feels better when the website finally works 😌
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-shop" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="cartModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Cart Summary 🛒</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                Your selected products will appear here.  
+                This modal is used to show cart details or confirmation messages.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-shop" data-bs-dismiss="modal">Okay</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <p class="mb-1">© 2026 ShopZone Shopping Website</p>
+    <p class="mb-0">Made by student with effort and Bootstrap 💙</p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
