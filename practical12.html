@@ -1,0 +1,235 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practical 12 - Fun Bootstrap Website</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #ffeef5, #f3e8ff);
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            background-color: #ff6fa1 !important;
+        }
+        .hero {
+            padding: 70px 20px;
+            text-align: center;
+            background: linear-gradient(to right, #ffd6e8, #e7d8ff);
+        }
+        .hero h1 {
+            font-size: 40px;
+            font-weight: bold;
+            color: #5a2a57;
+        }
+        .hero p {
+            font-size: 18px;
+            color: #6b4d68;
+        }
+        .cute-box {
+            background-color: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            height: 100%;
+            transition: 0.3s;
+        }
+        .cute-box:hover {
+            transform: translateY(-5px);
+        }
+        .card {
+            border: none;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .card img {
+            height: 220px;
+            object-fit: cover;
+        }
+        .fun-title {
+            color: #d63384;
+            font-weight: bold;
+        }
+        .btn-fun {
+            background-color: #ff6fa1;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 8px 18px;
+        }
+        .btn-fun:hover {
+            background-color: #e75480;
+            color: white;
+        }
+        .footer {
+            background-color: #5a2a57;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .emoji {
+            font-size: 22px;
+        }
+        .carousel-item img {
+            height: 420px;
+            object-fit: cover;
+            border-radius: 0 0 20px 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">My Site ✨</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mynav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#cards">Cards</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="hero">
+        <h1>Hello, Welcome to My Bootstrap Page 🌸</h1>
+        <p>This webpage is simple, responsive, cute and made for Practical 12 💻</p>
+        <button class="btn btn-fun mt-2">Explore More</button>
+    </section>
+    <div id="demo" class="carousel slide container mt-4" data-bs-ride="carousel">
+        <div class="carousel-inner rounded-4">
+            <div class="carousel-item active">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" class="d-block w-100" alt="slide1">
+            </div>
+            <div class="carousel-item">
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3" class="d-block w-100" alt="slide2">
+            </div>
+            <div class="carousel-item">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" class="d-block w-100" alt="slide3">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+    <section class="container py-5" id="about">
+        <div class="text-center mb-4">
+            <h2 class="fun-title">About This Website 💡</h2>
+            <p>This website is created using Bootstrap components like navbar, carousel, cards, buttons, grid system and footer.</p>
+        </div>
+    </section>
+    <section class="container pb-5" id="features">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="cute-box text-center">
+                    <div class="emoji">📱</div>
+                    <h4 class="mt-2">Responsive</h4>
+                    <p>This website adjusts on mobile, tablet and desktop screen sizes.</p>
+                    <button class="btn btn-fun">Nice!</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="cute-box text-center">
+                    <div class="emoji">🎨</div>
+                    <h4 class="mt-2">Aesthetic</h4>
+                    <p>Soft colors and rounded boxes make the webpage look more attractive.</p>
+                    <button class="btn btn-fun">Cute!</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="cute-box text-center">
+                    <div class="emoji">⚡</div>
+                    <h4 class="mt-2">Bootstrap</h4>
+                    <p>Bootstrap helps in making websites faster and easier with ready classes.</p>
+                    <button class="btn btn-fun">Useful!</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container pb-5" id="cards">
+        <h2 class="text-center fun-title mb-4">Fun Cards Section 🌈</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" alt="card1">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Study Time</h5>
+                        <p class="card-text">When assignment is due tomorrow but still we say “I have time”. 😅</p>
+                        <button class="btn btn-fun">Read</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f" alt="card2">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Bootstrap Magic</h5>
+                        <p class="card-text">Less coding, more styling, and suddenly we feel like pro developers. 😎</p>
+                        <button class="btn btn-fun">View</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <img src="https://images.unsplash.com/photo-1496171367470-9ed9a91ea931" alt="card3">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Student Life</h5>
+                        <p class="card-text">Coffee, code, confusion, repeat... and finally practical complete. ☕</p>
+                        <button class="btn btn-fun">Open</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container pb-5">
+        <h2 class="text-center fun-title mb-4">Small Grid Section 🧩</h2>
+        <div class="row text-center g-3">
+            <div class="col-6 col-md-3">
+                <div class="cute-box">Easy</div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="cute-box">Creative</div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="cute-box">Responsive</div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="cute-box">Fun</div>
+            </div>
+        </div>
+    </section>
+    <section class="container pb-5" id="contact">
+        <h2 class="text-center fun-title mb-4">Contact Section 📩</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <input type="text" class="form-control mb-3" placeholder="Enter your name">
+                <input type="email" class="form-control mb-3" placeholder="Enter your email">
+                <textarea class="form-control mb-3" rows="4" placeholder="Write your message"></textarea>
+                <button class="btn btn-fun">Submit</button>
+            </div>
+            <div class="col-md-6 mt-4 mt-md-0">
+                <div class="cute-box">
+                    <h4>Website Info</h4>
+                    <p><strong>Practical:</strong> 12</p>
+                    <p><strong>Topic:</strong> Bootstrap Webpage</p>
+                    <p><strong>Style:</strong> Fun + Student Friendly</p>
+                    <p><strong>Status:</strong> Submitted with confidence 😌</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="footer">
+        <p class="mb-1">© 2026 My Bootstrap Website</p>
+        <p class="mb-0">Made by student with stress, hope and little creativity 💖</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
