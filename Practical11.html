@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)http://127.0.0.1:5500/practical13/practical11.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Practical 11 - HTML5 APIs</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #f7f3ff, #fbfaff);
+  margin: 0;
+}
+.header {
+  background: #d8c4ff;
+  color: #4b3f63;
+  text-align: center;
+  padding: 25px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+.header h1 {
+  margin: 0;
+}
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 25px auto;
+}
+.section {
+  background: #ffffff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+.section h2 {
+  color: #7b5ea7;
+}
+.items {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.drag-item {
+  padding: 10px 15px;
+  background: #e9ddff;
+  border-radius: 12px;
+  cursor: grab;
+  font-weight: bold;
+}
+.drop-box {
+  margin-top: 15px;
+  min-height: 100px;
+  border: 2px dashed #c4a7ff;
+  border-radius: 15px;
+  padding: 15px;
+  background: #faf8ff;
+}
+button {
+  background: #c4a7ff;
+  color: #3a2f4d;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+button:hover {
+  background: #b197fc;
+}
+input {
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+}
+.output {
+  margin-top: 10px;
+  background: #f6f2ff;
+  padding: 10px;
+  border-radius: 12px;
+}
+.footer {
+  background: #d8c4ff;
+  text-align: center;
+  padding: 15px;
+  color: #4b3f63;
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>Travel Planner 💜</h1>
+  <p>HTML5 APIs Demo (Drag &amp; Drop, Geolocation, Web Storage)</p>
+</div>
+<div class="container">
+<div class="section">
+  <h2>1. Drag &amp; Drop 🎒</h2>
+  <p>Drag items into your travel bag</p>
+  <div class="items">
+    <div class="drag-item" draggable="true" ondragstart="drag(event)" id="i1">Passport</div>
+    <div class="drag-item" draggable="true" ondragstart="drag(event)" id="i2">Phone</div>
+    <div class="drag-item" draggable="true" ondragstart="drag(event)" id="i3">Snacks</div>
+    <div class="drag-item" draggable="true" ondragstart="drag(event)" id="i4">Charger</div>
+  </div>
+  <div class="drop-box" ondrop="drop(event)" ondragover="allowDrop(event)">
+    Drop items here...
+  </div>
+</div>
+<div class="section">
+  <h2>2. Geolocation 📍</h2>
+  <button onclick="getLocation()">Get Location</button>
+  <div class="output" id="loc">Location will appear here</div>
+</div>
+<div class="section">
+  <h2>3. Save Favorite Place 💾</h2>
+  <input type="text" id="place" placeholder="Enter place">
+  <button onclick="savePlace()">Save</button>
+  <button onclick="showPlace()">Show</button>
+
+  <div class="output" id="placeOut">No saved data</div>
+</div>
+<div class="section">
+  <h2>4. Mini Task List 📝</h2>
+  <input type="text" id="task" placeholder="Add task">
+  <button onclick="addTask()">Add</button>
+  <div class="output" id="taskList">No tasks yet</div>
+</div>
+</div>
+
+<div class="footer">
+  <p>© Practical 11 | Prachi Bajoria💜</p>
+</div>
+<script>
+function allowDrop(e) {
+  e.preventDefault();
+}
+function drag(e) {
+  e.dataTransfer.setData("text", e.target.id);
+}
+function drop(e) {
+  e.preventDefault();
+  var data = e.dataTransfer.getData("text");
+  e.target.appendChild(document.getElementById(data));
+}
+function getLocation() {
+  var x = document.getElementById("loc");
+
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      function(pos) {
+        x.innerHTML = "Latitude: " + pos.coords.latitude +
+        "<br>Longitude: " + pos.coords.longitude;
+      },
+      function() {
+        x.innerHTML = "Permission denied";
+      }
+    );
+  } else {
+    x.innerHTML = "Not supported";
+  }
+}
+function savePlace() {
+  var p = document.getElementById("place").value;
+  localStorage.setItem("place", p);
+}
+function showPlace() {
+  var p = localStorage.getItem("place");
+  document.getElementById("placeOut").innerHTML = p || "No data";
+}
+function addTask() {
+  var t = document.getElementById("task").value;
+  sessionStorage.setItem("task", t);
+  document.getElementById("taskList").innerHTML = "Task: " + t;
+}
+</script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+</body></html>
